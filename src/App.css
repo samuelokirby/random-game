@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
 main {
   align-content: center;
   box-sizing: border-box;
   display: grid;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  font-family: 'Langar';
   hyphens: auto;
   line-height: 1.65;
   margin: 0 auto;

@@ -1,8 +1,26 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import './App.css';
+import {Helmet} from 'react-helmet';
+import {useQuery} from 'react-query';
+
+const getPosts = async () => {
+  const response = await fetch('https://api.rawg.io/api/games');
+  return response.json();
+}
 
 function App() {
+
+  const { status, data, isFetching, error } = useQuery('posts', getPosts);
+
+  if (status === 'loading'){
+    return <div> Loading... </div>
+  }
+
+  if (status === 'error'){
+    return <div> Error </div>
+  }
+
   const [date, setDate] = useState(null);
   useEffect(() => {
     async function getDate() {
@@ -14,9 +32,12 @@ function App() {
   }, []);
   return (
     <main>
+      <Helmet>
+        <title>Test</title>
+      </Helmet>
       <h1>Create React App + Go API</h1>
       <h2>
-        Deployed with{' '}
+        Deployed with saucy sauce from {' '}
         <a
           href="https://vercel.com/docs"
           target="_blank"
